@@ -13,6 +13,11 @@
       <h2>{{ name }}</h2>
       <p>{{ job }}</p>
       <p>{{ greet('Afternoon') }}</p>
+      <a v-bind:href="youtube">Youtube</a> <br />
+      <br />
+      <input type="text" :value="name" /><br />
+      <br />
+      <p v-html="tag"></p>
     </div>
 
     <script src="app.js"></script>
