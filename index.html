@@ -10,9 +10,19 @@
   </head>
   <body>
     <div id="app">
-      <h2>{{ name }}</h2>
-      <p>{{ job }}</p>
-      <p>{{ greet('Afternoon') }}</p>
+      <!-- Bag Image -->
+
+      <div id="bag" v-bind:class="{burst: ended}"></div>
+      <!-- Bag Health -->
+      <div id="bag-health">
+        <div v-bind:style="{width : health + '%'}"></div>
+      </div>
+
+      <!-- Game Controls -->
+      <div id="controls">
+        <button @click="punch" v-show="!ended">Punch</button>
+        <button @click="restart">Restart</button>
+      </div>
     </div>
 
     <script src="app.js"></script>
