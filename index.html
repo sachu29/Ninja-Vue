@@ -10,74 +10,19 @@
   </head>
   <body>
     <div id="app">
-      <h1>{{greet('Afternoon')}}</h1>
-      <p>My age is : {{age}}</p>
-      <br />
-      <button @click.once="add(1)">Add Your age</button>
-      <button @click="subtract(1)">Subtract Your age</button>
-      <button @dblclick="add(5)">Add 5 Years age</button>
-      <button @dblclick="subtract(5)">Subtract 5 Years age</button>
+      <!-- Bag Image -->
 
-      <div id="canvas" @mousemove="updateXY">{{x}}, {{y}}</div>
-      <br />
-      <div>
-        <h2>Keyboard events</h2>
-        <label for="">Name</label>
-        <input type="text" v-model="name" /> <span>{{ name }}</span>
-        <label for="">Age</label>
-        <input type="text" v-model="age" />
-      </div>
-      <br />
-      <div>
-        <h2>Computed Properties</h2>
-        <button @click="a++">Add to A</button>
-        <button @click="b++">Add to B</button>
-        <p>A - {{a}}</p>
-        <p>B - {{b}}</p>
-        <p>Age + A = {{addToA}}</p>
-        <p>Age + B = {{addToB}}</p>
-      </div>
-      <br />
-      <div>
-        <h2>Dynamic css Classes</h2>
-        <h2>Example 1</h2>
-        <!-- <div
-          v-on:click="available= !available"
-          v-bind:class="{available:available}"
-        >
-          <span>Boom</span>
-        </div> -->
-        <h2>Example 2</h2>
-        <button v-on:click="nearby= !nearby">Toggle nearby</button>
-        <button @click="available = !available">Toggle available</button>
-        <div v-bind:class="compClasses">
-          <span>Blast</span>
-        </div>
-      </div>
-      <br />
-      <div>
-        <h2>Conditional</h2>
-        <button @click="error= !error">Toggle Error</button>
-        <button @click="suc= !suc">Toggle Success</button>
-        <br />
-        <p v-if="error">This is the error</p>
-        <p v-else-if="suc">This is Success msg</p>
+      <div id="bag" v-bind:class="{burst: ended}"></div>
+      <!-- Bag Health -->
+      <div id="bag-health">
+        <div v-bind:style="{width : health + '%'}"></div>
       </div>
 
-      <div>
-        <h2>Looping through list</h2>
-        <ul>
-          <li v-for="character in characters">{{character}}</li>
-        </ul>
-        <ul>
-          <li v-for="familys in family">{{ familys.name}}</li>
-        </ul>
+      <!-- Game Controls -->
+      <div id="controls">
+        <button @click="punch" v-show="!ended">Punch</button>
+        <button @click="restart">Restart</button>
       </div>
-      <template v-for="familys in family">
-        <div v-for="(val,key) in familys">
-          <p>{{key}} - {{val}}</p>
-        </div>
-      </template>
     </div>
 
     <script src="app.js"></script>
